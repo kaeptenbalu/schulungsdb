@@ -74,9 +74,10 @@ if (isset($_POST["createBildungsbeauftragter"])){
 	$vorname = $_POST["vorname"];
 	$email = $_POST["email"];
 	$telefonnummer = $_POST["telefonnummer"];
+	$id = $_POST["id"];
 
 	//prepare query
-	$query = "INSERT INTO Schulungen (name, vorname, email, telefonnumer) VALUES ('".$name."', '".$vorname."', '".$email."', '".$telefonnumer."');";
+	$query = "INSERT INTO Schulungen (name, vorname, email, telefonnumer, id) VALUES ('".$name."', '".$vorname."', '".$email."', '".$telefonnumer."','".$id."');";
 
 	$result = runSQLquery($query);
 	//query db

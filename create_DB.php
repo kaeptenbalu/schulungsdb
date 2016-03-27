@@ -28,6 +28,6 @@ $db->exec('CREATE TABLE Bildungsbeauftrager (ID INTEGER PRIMARY KEY, name varcha
 echo "Tabelle 'Bildungsbeauftrager wurde erstellt \n";
 
 //tabelle Betriebe
-$db->exec('CREATE TABLE Betriebe (betriebsnummer INTEGER PRIMARY KEY, firma varchar(255), strasse varchar(255), plz varchar(10), ort varchar(100), FOREIGN KEY(bildungsbeauftrager_id) REFERENCES Bildungsbeauftrager(ID) ON DELETE CASCADE  )');
+$db->exec('CREATE TABLE Betriebe (betriebsnummer INTEGER PRIMARY KEY, firma varchar(255), strasse varchar(255), plz varchar(10), ort varchar(100), bildungsbeauftrager_id INTEGER NOT NULL, FOREIGN KEY(bildungsbeauftrager_id) REFERENCES Bildungsbeauftrager(ID) ON DELETE CASCADE )');
 echo "Tabelle 'Betriebe' wurde erstellt \n";
 ?>
