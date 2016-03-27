@@ -24,10 +24,10 @@ $db->exec('CREATE TABLE Teilnehmer_Schulungen (teilnehmer_id INTEGER NOT NULL, s
 echo "Tabelle 'Teilnehmer_Schulung' wurde erstellt \n";
 
 //tabelle Bildungsbeauftragter
-$db->exec('CREATE TABLE Bildungsbeauftrager (ID INTEGER PRIMARY KEY, name varchar(255), vorname varchar(255), mail varchar(255), telefonnumer varchar(15))');
+$db->exec('CREATE TABLE Bildungsbeauftrager (ID INTEGER PRIMARY KEY, name varchar(255), vorname varchar(255), email varchar(255), telefonnumer varchar(15))');
 echo "Tabelle 'Bildungsbeauftrager wurde erstellt \n";
 
 //tabelle Betriebe
-$db->exec('CREATE TABLE Betriebe (betriebsnummer INTEGER PRIMARY KEY, firma varchar(255), strasse varchar(255), plz varchar(10), ort varchar(100), bildungskoordinator varchar(255))');
+$db->exec('CREATE TABLE Betriebe (betriebsnummer INTEGER PRIMARY KEY, firma varchar(255), strasse varchar(255), plz varchar(10), ort varchar(100), FOREIGN KEY(bildungsbeauftrager_id) REFERENCES Bildungsbeauftrager(ID) ON DELETE CASCADE  )');
 echo "Tabelle 'Betriebe' wurde erstellt \n";
 ?>
