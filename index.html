@@ -1,69 +1,80 @@
 <html>
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<title>Schulungsdb</title>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<ul class="nav nav-pills">
+  			<li class="active"><a data-toggle="pill" href="#home">Teilnehmer</a></li>
+			<li><a data-toggle="pill" href="#menu1">Schulung</a></li>
+			<li><a data-toggle="pill" href="#menu2">Bildungsbeauftragter</a></li>
+			<li><a data-toggle="pill" href="#menu2">Betriebe</a></li>
+		</ul>
+		<div class="tab-content">
+    			<div id="home" class="tab-pane fade in active">
+				<h3>Teilnehmer anlegen</h3>
+				<form action="" method="POST">
+					<div class="form-group">
+						<input type="hidden" name="createTeilnehmer" value="createTeilnehmer">
+						Vorname: <input type="text" class="form-control" name="vorname" value="Vorname"></br>
+						Nachname: <input type="text" class="form-control" name="nachname" value="Nachname"></br>
+						eMail: <input type="text" class="form-control" name="email" value="eMail"></br>
+						Firma: <input type="text" class="form-control" name="firma" value="Firma"></br>
+						Betrieb: <input type="text" class="form-control" name="betrieb" value="Betrieb"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
 
-<div class="container col-md4">
-	<div class='jumbotron'>
-	  <h2>Dies ist meine hammer geilo SchulungsDB yeah!</h2>
-		
-		<h3>Benutzer anlegen</h3>		
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<input type="hidden" name="createTeilnehmer" value="createTeilnehmer">
-				Vorname: <input type="text" class="form-control" name="vorname" value="Vorname"></br>
-				Nachname: <input type="text" class="form-control" name="nachname" value="Nachname"></br>
-				eMail: <input type="text" class="form-control" name="email" value="eMail"></br>
-				Firma: <input type="text" class="form-control" name="firma" value="Firma"></br>
-				Betrieb: <input type="text" class="form-control" name="betrieb" value="Betrieb"></br>
-				<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</form>
 			</div>
-		</form>
+			<div id="menu1" class="tab-pane fade">
+				<h3>Schulung anlegen</h3>
+				<form action="action.php" method="POST">
+					<div class="form-group">
+						<input type="hidden" name="createSchulung" value="createSchulung">
+						Name: <input type="text" class="form-control" name="name" value="name"></br>
+						Bezeichnung: <input type="text" class="form-control" name="bezeichnung" value="bezeichnung"></br>
+						Schulungsort: <input type="text" class="form-control" name="schulungsort" value="schulungsort"></br>
+						Datum: <input type="date" class="form-control" name="datum"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</form>
 
-
-		<h3>Betrieb anlegen</h3>
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<input type="hidden" name="createBetrieb" value="createBetrieb">
-				Firma: <input type="text" class="form-control" name="firma" value="firma"></br>
-				Strasse: <input type="text" class="form-control" name="strasse" value="strasse"></br>
-				PLZ: <input type="text" class="form-control" name="plz" value="plz"></br>
-				Ort: <input type="text" class="form-control" name="ort" value="ort"></br>
-				Bildungskoordinator: <input type="text" class="form-control" name="bildungskoordinator" value="bildungskoordinator"></br>
-				<input type="submit" class="btn btn-primary" value="Abschicken">
 			</div>
-		</form>
+		    	<div id="menu2" class="tab-pane fade">
+		      		<h3>Bildungsbeauftragter anlegen</h3>
+				<form action="action.php" method="POST">
+					<div class="form-group">
+						<input type="hidden" name="createcreateBildungsbeauftragter" value="createcreateBildungsbeauftragter">
+						Name: <input type="text" class="form-control" name="name" value="name"></br>
+						vorname: <input type="text" class="form-control" name="vorname" value="vorname"></br>
+						eMail: <input type="text" class="form-control" name="email" value="email"></br>
+						Tel: <input type="text" class="form-control" name="telefonnumer" value="+490123456789"></br>
+					<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</form>
 
-
-		<h3>Schulung anlegen</h3>
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<input type="hidden" name="createSchulung" value="createSchulung">
-				Name: <input type="text" class="form-control" name="name" value="name"></br>
-				Bezeichnung: <input type="text" class="form-control" name="bezeichnung" value="bezeichnung"></br>
-				Schulungsort: <input type="text" class="form-control" name="schulungsort" value="schulungsort"></br>
-				Datum: <input type="date" class="form-control" name="datum"></br>
-				<input type="submit" class="btn btn-primary" value="Abschicken">
 			</div>
-		</form>
+		    	<div id="menu3" class="tab-pane fade">
+				<h3>Betrieb anlegen</h3>
+				<form action="action.php" method="POST">
+					<div class="form-group">
+						<input type="hidden" name="createBetrieb" value="createBetrieb">
+						Firma: <input type="text" class="form-control" name="Firma" value="firma"></br>
+						Strasse: <input type="text" class="form-control" name="Strasse" value="strasse"></br>
+						PLZ: <input type="text" class="form-control" name="plz" value="plz"></br>
+						Ort: <input type="text" class="form-control" name="ort" value="ort"></br>
+						Bildungskoordinator: <input type="text" class="form-control" name="Bildungskoordinator" value="bildungskoordinator"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</form>
+		   	</div>
+		</div>
 
-
-		<h3>createBildungsbeauftragter anlegen</h3>
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<input type="hidden" name="createcreateBildungsbeauftragter" value="createcreateBildungsbeauftragter">
-				Name: <input type="text" class="form-control" name="name" value="name"></br>
-				vorname: <input type="text" class="form-control" name="vorname" value="vorname"></br>
-				eMail: <input type="text" class="form-control" name="email" value="email"></br>
-				Datum: <input type="text" class="form-control" name="telefonnumer" value="+490123456789"></br>
-				<input type="submit" class="btn btn-primary" value="Abschicken">
-			</div>
-		</form>
-
-	</div>
-</div>
-
-</body>
+	</body>
 </html>
