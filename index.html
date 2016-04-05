@@ -17,15 +17,13 @@
 <div class="bs-example">
     <ul class="nav nav-tabs">
 	<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-	 <li><a data-toggle="tab" href="#support">Support</a></li>
         <li class="dropdown">
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#teilnehmer">Teilnehmer<b class="caret"></b></a>
            		<ul class="dropdown-menu">
-				<li><a data-toggle="tab" href="#tdurchsuchen">Bildungsbeauftragter durchsuchen</a></li>
-				<li><a data-toggle="tab" href="#tanlegen">Bildungsbeauftragter anlegen</a></li>
+				<li><a data-toggle="tab" href="#tdurchsuchen">Teilnehmer durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#tanlegen">Teilnehmer anlegen</a></li>
            		</ul>
 	</li>
-
 	<li class="dropdown">
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#schulung">Bildungsbeauftragter<b class="caret"></b></a>
            		<ul class="dropdown-menu">
@@ -40,6 +38,28 @@
 				<li><a data-toggle="tab" href="#banlegen">Bildungsbeauftragter anlegen</a></li>
            		</ul>
        </li>
+	<li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#betriebe">Betriebe<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a data-toggle="tab" href="#bedurchsuchen">Betriebe durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#beanlegen">Betriebe anlegen</a></li>
+           		</ul>
+	
+	</li>
+	     <form id="signin" class="navbar-form navbar-right" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email">                                        
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Kennwort">                                        
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Anmelden</button>
+                   </form>
+       	
    </ul>
 <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
@@ -107,7 +127,27 @@
 			</div>
 		</form>
         </div>
-    </div>
+	<div id="bedurchsuchen" class="tab-pane fade">
+            <h3>Durchsuchen</h3>
+            <p>DURCHSUCHEN</p>
+        </div>
+	<div id="beanlegen" class="tab-pane fade">
+		<h3>Anlegen</h3>		<form action="action.php" method="POST">
+			<div class="form-group">
+				<div class="col-xs-10">
+					<input type="hidden" name="createBetrieb" value="createBetrieb">
+					Firma: <input type="text" class="form-control" name="firma" value=""></br>
+					Strasse: <input type="text" class="form-control" name="strasse" value=""></br>
+					PLZ: <input type="text" class="form-control" name="plz" value=""></br>
+					Ort: <input type="text" class="form-control" name="ort" value=""></br>
+					Bildungskoordinator: <input type="text" class="form-control" name="bildungskoordinator" value=""></br>
+					<input type="submit" class="btn btn-primary" value="Abschicken">
+				</div>
+			</div>
+		</form>
+        </div>
+ </div>
+
 </div>
 </body>
 </html> 
