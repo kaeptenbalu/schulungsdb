@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +27,10 @@
            		</ul>
 	</li>
 	<li class="dropdown">
-		<a data-toggle="dropdown" class="dropdown-toggle" href="#schulung">Bildungsbeauftragter<b class="caret"></b></a>
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#schulung">Schulung<b class="caret"></b></a>
            		<ul class="dropdown-menu">
-				<li><a data-toggle="tab" href="#sdurchsuchen">Bildungsbeauftragter durchsuchen</a></li>
-				<li><a data-toggle="tab" href="#sanlegen">Bildungsbeauftragter anlegen</a></li>
+				<li><a data-toggle="tab" href="#sdurchsuchen">Schulungen durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#sanlegen">Schulungen anlegen</a></li>
            		</ul>
 	</li>
         <li class="dropdown">
@@ -46,33 +48,37 @@
            		</ul>
 	
 	</li>
-	     <form id="signin" class="navbar-form navbar-right" role="form">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email">                                        
-                        </div>
+	     <form action="action.php" method="POST" class="navbar-form navbar-right" role="form">
+	     <input type="hidden" name="signin" value="signin">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="username" type="text" class="form-control" name="username" value="" placeholder="username">                                        
+            </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Kennwort">                                        
-                        </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" value="" placeholder="Kennwort">                                        
+            </div>
 
-                        <button type="submit" class="btn btn-primary">Anmelden</button>
-                   </form>
-       	
+            <button type="submit" class="btn btn-primary">Anmelden</button>
+       </form>       	
    </ul>
-<div class="tab-content">
+	
+	<div class="tab-content">
         <div id="home" class="tab-pane fade in active">
             <h3>SCHULUNGSDB</h3>
         </div>
+
         <div id="support" class="tab-pane fade">
             <h3>Support</h3>
             <p>FERNWARUTUNG...</p>
         </div>
+
         <div id="tdurchsuchen" class="tab-pane fade">
             <h3>Durchsuchen</h3>
             <p>DURCHSUCHEN</p>
         </div>
+
         <div id="tanlegen" class="tab-pane fade">
 		<h3>Anlegen</h3>
 		<form action="action.php" method="POST">
@@ -88,102 +94,74 @@
 				</div>
 			</div>
 		</form>
-	</div>
+		</div>
+
         <div id="sdurchsuchen" class="tab-pane fade">
             <h3>Durchsuchen</h3>
             <p>DURCHSUCHEN</p>
         </div>
+
         <div id="sanlegen" class="tab-pane fade">
-		<h3>Anlegen</h3>
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<div class="col-xs-10">
-					<input type="hidden" name="createSchulung" value="createSchulung">
-					Name: <input type="text" class="form-control" name="name" value=></br>
-					Bezeichnung: <input type="text" class="form-control" name="bezeichnung" value=></br>
-					Schulungsort: <input type="text" class="form-control" name="schulungsort" value=></br>
-					Datum: <input type="date" class="form-control" name="datum" value="01.01.1990"></br>
-					<input type="submit" class="btn btn-primary" value="Abschicken">
+			<h3>Anlegen</h3>
+			<form action="action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createSchulung" value="createSchulung">
+						Name: <input type="text" class="form-control" name="name" value=></br>
+						Bezeichnung: <input type="text" class="form-control" name="bezeichnung" value=></br>
+						Schulungsort: <input type="text" class="form-control" name="schulungsort" value=></br>
+						Datum: <input type="date" class="form-control" name="datum" value="01.01.1990"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
         </div>
+        
         <div id="bdurchsuchen" class="tab-pane fade">
             <h3>Durchsuchen</h3>
             <p>DURCHSUCHEN</p>
         </div>
+
         <div id="banlegen" class="tab-pane fade">
-		<h3>Anlegen</h3>
-		<form action="action.php" method="POST">
-			<div class="form-group">
-				<div class="col-xs-10">
-					<input type="hidden" name="createcreateBildungsbeauftragter" value="createcreateBildungsbeauftragter">
-					Name: <input type="text" class="form-control" name="name" value=></br>
-					vorname: <input type="text" class="form-control" name="vorname" value=></br>
-					eMail: <input type="text" class="form-control" name="email" value=></br>
-					Tel: <input type="text" class="form-control" name="telefonnumer" value="+490123456789"></br>
-					<input type="submit" class="btn btn-primary" value="Abschicken">
+			<h3>Anlegen</h3>
+			<form action="action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createBildungsbeauftragter" value="createBildungsbeauftragter">
+						Name: <input type="text" class="form-control" name="name" value=></br>
+						vorname: <input type="text" class="form-control" name="vorname" value=></br>
+						eMail: <input type="text" class="form-control" name="email" value=></br>
+						Tel: <input type="text" class="form-control" name="telefonnumer" value="+490123456789"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
         </div>
-	<div id="bedurchsuchen" class="tab-pane fade">
-            <h3>Durchsuchen</h3>
-            <p>DURCHSUCHEN</p>
-        </div>
-	<div id="beanlegen" class="tab-pane fade">
-		<h3>Anlegen</h3>		<form action="action.php" method="POST">
-			<div class="form-group">
-				<div class="col-xs-10">
-					<input type="hidden" name="createBetrieb" value="createBetrieb">
-					Firma: <input type="text" class="form-control" name="firma" value=""></br>
-					Strasse: <input type="text" class="form-control" name="strasse" value=""></br>
-					PLZ: <input type="text" class="form-control" name="plz" value=""></br>
-					Ort: <input type="text" class="form-control" name="ort" value=""></br>
-					Bildungskoordinator: <input type="text" class="form-control" name="bildungskoordinator" value=""></br>
-					<input type="submit" class="btn btn-primary" value="Abschicken">
+	
+		<div id="bedurchsuchen" class="tab-pane fade">
+	        <h3>Durchsuchen</h3>
+	        <p>DURCHSUCHEN</p>
+	    </div>
+	
+		<div id="beanlegen" class="tab-pane fade">
+			<h3>Anlegen</h3>		
+			<form action="action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createBetrieb" value="createBetrieb">
+						Firma: <input type="text" class="form-control" name="firma" value=""></br>
+						Strasse: <input type="text" class="form-control" name="strasse" value=""></br>
+						PLZ: <input type="text" class="form-control" name="plz" value=""></br>
+						Ort: <input type="text" class="form-control" name="ort" value=""></br>
+						Bildungskoordinator: <input type="text" class="form-control" name="bildungskoordinator" value=""></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
 				</div>
-			</div>
-		</form>
-        </div>
- </div>
+			</form>
+		</div>
 
-</div>
+	</div> <!-- Div TabContent -->
+
+</div> <!-- div bs example -->
 </body>
-</html> 
-		<?php
-
-		if (isset($_POST["vorname"])) {
-	
-			$vorname = $_POST["vorname"];
-			$nachname = $_POST["nachname"];
-			$email = $_POST["email"];
-			$firma = $_POST["firma"];
-			$betrieb = $_POST["betrieb"];
-	
-			//connect to db
-			class MyDB extends SQLite3
-			{
-			    function __construct()
-			    {
-				$this->open('./SchulungsDB.db');
-			    }
-			}
-
-			$db = new MyDB();
-
-			//prepare query
-			$query = "INSERT INTO Teilnehmer (vorname, nachname, mailadresse, firma, betrieb) VALUES ('".$vorname."', '".$nachname."', '".$email."', '".$firma."', '".$betrieb."');";
-			echo $query;
-
-			//execute query
-			$result = $db->exec($query);
-			//query db
-			$result = $db->query("SELECT * FROM Teilnehmer;");
-			echo var_dump($result->fetchArray());	
-		}
-
-		?>
-
-	
 </html>			
