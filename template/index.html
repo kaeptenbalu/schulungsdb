@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Bootstrap 3 Dynamic Tabs</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.bs-example{
+		margin: 20px;
+	}
+</style>
+</head>
+<body>
+<div class="bs-example">
+    <ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#teilnehmer">Teilnehmer<b class="caret"></b></a>
+           		<ul class="dropdown-menu">
+				<li><a data-toggle="tab" href="#tdurchsuchen">Teilnehmer durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#tanlegen">Teilnehmer anlegen</a></li>
+           		</ul>
+	</li>
+	<li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#schulung">Schulung<b class="caret"></b></a>
+           		<ul class="dropdown-menu">
+				<li><a data-toggle="tab" href="#sdurchsuchen">Schulungen durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#sanlegen">Schulungen anlegen</a></li>
+           		</ul>
+	</li>
+        <li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#bildungsbeauftragter">Bildungsbeauftragter<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a data-toggle="tab" href="#bdurchsuchen">Bildungsbeauftragter durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#banlegen">Bildungsbeauftragter anlegen</a></li>
+           		</ul>
+       </li>
+	<li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#betriebe">Betriebe<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a data-toggle="tab" href="#bedurchsuchen">Betriebe durchsuchen</a></li>
+				<li><a data-toggle="tab" href="#beanlegen">Betriebe anlegen</a></li>
+           		</ul>
+	
+	</li>
+	     <form action="../action.php" method="POST" class="navbar-form navbar-right" role="form">
+	     <input type="hidden" name="signin" value="signin">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="username" type="text" class="form-control" name="username" value="" placeholder="username">                                        
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" value="" placeholder="Kennwort">                                        
+            </div>
+
+            <button type="submit" class="btn btn-primary">Anmelden</button>
+       </form>       	
+   </ul>
+	
+	<div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>SCHULUNGSDB</h3>
+        </div>
+
+        <div id="support" class="tab-pane fade">
+            <h3>Support</h3>
+            <p>FERNWARUTUNG...</p>
+        </div>
+
+        <div id="tdurchsuchen" class="tab-pane fade">
+            <h3>Durchsuchen</h3>
+            <p>DURCHSUCHEN</p>
+        </div>
+
+        <div id="tanlegen" class="tab-pane fade">
+		<h3>Anlegen</h3>
+		<form action="../action.php" method="POST">
+			<div class="form-group">
+				<div class="col-xs-10">
+					<input type="hidden" name="createTeilnehmer" value="createTeilnehmer">
+					Vorname: <input type="text" class="form-control" name="vorname" value=></br>
+					Nachname: <input type="text" class="form-control" name="nachname" value=></br>
+					eMail: <input type="text" class="form-control" name="email" value=></br>
+					Firma: <input type="text" class="form-control" name="firma" value=></br>
+					Betrieb: <input type="text" class="form-control" name="betrieb" value=></br>
+					<td  class="center" colspan="2" ><input type="submit" class="btn btn-primary" value="Abschicken"></td>
+				</div>
+			</div>
+		</form>
+		</div>
+
+        <div id="sdurchsuchen" class="tab-pane fade">
+            <h3>Durchsuchen</h3>
+            <p>DURCHSUCHEN</p>
+        </div>
+
+        <div id="sanlegen" class="tab-pane fade">
+			<h3>Anlegen</h3>
+			<form action="../action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createSchulung" value="createSchulung">
+						Name: <input type="text" class="form-control" name="name" value=></br>
+						Bezeichnung: <input type="text" class="form-control" name="bezeichnung" value=></br>
+						Schulungsort: <input type="text" class="form-control" name="schulungsort" value=></br>
+						Datum: <input type="date" class="form-control" name="datum" value="01.01.1990"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</div>
+			</form>
+        </div>
+        
+        <div id="bdurchsuchen" class="tab-pane fade">
+            <h3>Durchsuchen</h3>
+            <p>DURCHSUCHEN</p>
+        </div>
+
+        <div id="banlegen" class="tab-pane fade">
+			<h3>Anlegen</h3>
+			<form action="../action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createBildungsbeauftragter" value="createBildungsbeauftragter">
+						Name: <input type="text" class="form-control" name="name" value=></br>
+						vorname: <input type="text" class="form-control" name="vorname" value=></br>
+						eMail: <input type="text" class="form-control" name="email" value=></br>
+						Tel: <input type="text" class="form-control" name="telefonnumer" value="+490123456789"></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</div>
+			</form>
+        </div>
+	
+		<div id="bedurchsuchen" class="tab-pane fade">
+	        <h3>Durchsuchen</h3>
+	        <p>DURCHSUCHEN</p>
+	    </div>
+	
+		<div id="beanlegen" class="tab-pane fade">
+			<h3>Anlegen</h3>		
+			<form action="../action.php" method="POST">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input type="hidden" name="createBetrieb" value="createBetrieb">
+						Firma: <input type="text" class="form-control" name="firma" value=""></br>
+						Strasse: <input type="text" class="form-control" name="strasse" value=""></br>
+						PLZ: <input type="text" class="form-control" name="plz" value=""></br>
+						Ort: <input type="text" class="form-control" name="ort" value=""></br>
+						Bildungskoordinator: <input type="text" class="form-control" name="bildungskoordinator" value=""></br>
+						<input type="submit" class="btn btn-primary" value="Abschicken">
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div> <!-- Div TabContent -->
+
+</div> <!-- div bs example -->
+</body>
+</html>			

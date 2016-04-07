@@ -1,18 +1,22 @@
 <?php session_start(); ?>
 <?php
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
+
+include('helper.php');
+
 /**
 * Login-Stuff
 * To logout -> unset($_SESSION['user_id']);
 **/
-if (isset($_POST["signin"])) {  
+if (isset($_POST["signin"])) { 
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     $query = "SELECT username, password FROM User WHERE username = '".$username."' AND password = '".$password."'";
 
-    $results = runSQLquery($query, 'login');
+    $results = runSQLquery($query, 'select');
     
     //echo '<pre>'; print_r($results); echo '</pre>';
     if ($username === $results[0]['username'] && $results[0]['password']) {
@@ -23,87 +27,22 @@ if (isset($_POST["signin"])) {
             'login' => 'login',
             'some_info' => 'some info'
         );*/
-        echo 'sessioncookie gesetzt. </br> <script type="text/javascript"> window.open("index.html","_self");</script>';
+        echo 'sessioncookie gesetzt. </br> 
+                <script type="text/javascript">
+                    window.setTimeout(function(){
+                        window.location.href = "index.php";
+                    }, 3000);
+                </script>';
     }
 
     else{
-        echo "something went wrong x(";
+        echo 'something went wrong x(, try again!
+                <script type="text/javascript">
+                    window.setTimeout(function(){
+                        window.location.href = "login.php";
+                    }, 3000);
+                </script>';
     }
-
-}
-
-
-/**
-* Debugging Helper
-**/
-function debug_to_console( $data ) {
-
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
-
-    echo $output;
-}
-
-
-/**
-* SQL-Helper function
-**/
-
-class MyDB extends SQLite3 {
-    function __construct()
-    {
-        //connect to db
-        $this->open('./SchulungsDB.db');
-    }
-}
-
-
-function checkResult($result){
-    if (!$result) {
-        throw new Exception("Database Error [{$this->database->errno}] {$this->database->error}");
-        debug_to_console( "db error 2" );
-        die("SQL-Query Error.");
-    }
-}
-
-function runSQLquery($query, $type){    
-    
-    $db = new MyDB();
-    debug_to_console( "bla" );
-    if(!$db){
-        echo $db->lastErrorMsg();
-        debug_to_console( "db error" );
-        die("SQL-Query Error.");
-    } 
-    else {
-        /**
-        * query-function bug executes each query twice if insert with query is used
-        * as workarround, each insert call needs to use exec function which not return any datasets
-        * but true or false.
-        **/
-        if ($type === 'insert') {
-            debug_to_console( "insert" );
-            $result = $db->exec($query);
-            checkresult($result);
-            return $result;
-        }
-        else {
-            $results = array();
-            $result = $db->query($query);
-            checkresult($result);
-            //debug_to_console( $results );
-            while($row=$result->fetchArray(SQLITE3_ASSOC)){
-                $rows = array($row);
-                $results = array_merge($results,$rows);
-                //debug_to_console( $rows );
-            }
-        }
-    }
-    
-    $db->close();
-    return $results;
 }
 
 
@@ -112,6 +51,8 @@ function runSQLquery($query, $type){
 **/
 if(isset($_SESSION['user'])){
 //logged In
+    //debug_to_console('gehts?');
+    include('datatables.php');
 
     if (isset($_POST["createTeilnehmer"])) {    
         $vorname = $_POST["vorname"];
@@ -182,8 +123,12 @@ if(isset($_SESSION['user'])){
 
 }else{
 // Not logged in :(
-    echo "you are not logged in. please login...";
+    echo 'You are not logged in, please login. 
+        <script type="text/javascript">
+            window.setTimeout(function(){
+                window.location.href = "index.php";
+            }, 3000);
+        </script>';
 }
-
 
 ?>

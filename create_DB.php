@@ -1,4 +1,4 @@
-<?php
+<?php 
 //mach db uff
 $db = new SQLite3('./SchulungsDB.db');
 //$dbhandle = sqlite_open('db/test.db', 0666, $error);
